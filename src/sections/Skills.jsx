@@ -1,15 +1,62 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { LayoutDashboard, Component, Database } from 'lucide-react';
 
 export default function Skills() {
+  const [isInView, setIsInView] = useState(false); // Trigger for scroll visibility
+  const [isVisibleTitle, setIsVisibleTitle] = useState(false); // For title
+  const [isVisibleCards, setIsVisibleCards] = useState(false); // For cards grid
+  const mainRef = useRef(null); // Ref for intersection observer
+
+  // Intersection Observer: Trigger when section enters viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect(); // Run once
+        }
+      },
+      { threshold: 0.1 } // Trigger when 10% of section is visible
+    );
+
+    if (mainRef.current) {
+      observer.observe(mainRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Staggered animations: Trigger only when in view
+  useEffect(() => {
+    if (!isInView) return;
+
+    const timerTitle = setTimeout(() => setIsVisibleTitle(true), 200); // Title first
+    const timerCards = setTimeout(() => setIsVisibleCards(true), 500); // Cards after
+
+    return () => {
+      clearTimeout(timerTitle);
+      clearTimeout(timerCards);
+    };
+  }, [isInView]);
+
   return (
     <>
-      <div className="my-20 px-20">
-        <h2 className="text-textPrimary my-10 text-left text-6xl font-bold">Skills</h2>
+      <div ref={mainRef} className="my-20 px-20">
+        {/* Title - fades/slides from left to right */}
+        <h2
+          className={`text-textPrimary my-10 text-left text-6xl font-bold transition-all duration-700 ease-out ${
+            isVisibleTitle ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'
+          }`}
+        >
+          Skills
+        </h2>
         <div className="text-textPrimary mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 justify-items-center gap-5 xl:grid-cols-3">
-            {' '}
-            {/* Changed to 1 col on small/mid screens (vertical stack), 3 cols on xl/full screen+ (horizontal) */}
+          {/* Cards grid - fades/slides from bottom to top */}
+          <div
+            className={`grid grid-cols-1 justify-items-center gap-5 transition-all duration-700 ease-out xl:grid-cols-3 ${
+              isVisibleCards ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+            }`}
+          >
             {/* Skill Card */}
             <div className="w-full space-y-4 rounded-lg bg-white/5 p-4 md:space-y-5 md:p-6">
               <div className="flex items-center gap-2">

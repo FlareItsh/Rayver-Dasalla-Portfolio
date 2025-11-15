@@ -3,7 +3,7 @@ import React from 'react';
 export default function Footer() {
   return (
     <>
-      <footer className="bg-primary p-4 text-white sm:p-8 md:p-12 lg:p-20">
+      <footer className="bg-primary p-4 text-white sm:p-8">
         <div className="flex flex-col items-center justify-center gap-8 lg:flex-row lg:justify-around lg:gap-0">
           {/* Left Section: Contact & Tagline */}
           <div className="order-2 flex flex-col items-center gap-4 text-center lg:order-1 lg:items-start lg:gap-20 lg:text-left">
@@ -63,6 +63,10 @@ export default function Footer() {
               </a>
             </div>
           </div>
+        </div>
+        <div className="mt-4 flex flex-col justify-center px-12">
+          <hr className="w-full border-t border-gray-300" />
+          <h3 className="text-lg">© 2025 Rayver Dasalla. All Rights Reserve</h3>
         </div>
       </footer>
     </>

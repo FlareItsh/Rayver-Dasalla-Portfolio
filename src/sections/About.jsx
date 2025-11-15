@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Button from '../components/ui/Button';
 
 export default function About() {
   const [currentImage, setCurrentImage] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
   const totalImages = 8;
+  const [isInView, setIsInView] = useState(false); // Trigger for scroll visibility
+  const [isVisibleLeft, setIsVisibleLeft] = useState(false); // For left section (title + icons)
+  const [isVisibleRight, setIsVisibleRight] = useState(false); // For right section (large image)
+  const [isVisibleButtons, setIsVisibleButtons] = useState(false); // For buttons
+  const mainRef = useRef(null); // Ref for intersection observer
 
   // Mapping for icon names shown on hover
   const iconNames = {
@@ -47,14 +52,52 @@ export default function About() {
     }
   }, [isMobile]);
 
+  // Intersection Observer: Trigger when section enters viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect(); // Run once
+        }
+      },
+      { threshold: 0.1 } // Trigger when 10% of section is visible
+    );
+
+    if (mainRef.current) {
+      observer.observe(mainRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Staggered animations: Trigger only when in view
+  useEffect(() => {
+    if (!isInView) return;
+
+    const timerLeft = setTimeout(() => setIsVisibleLeft(true), 200); // Slight delay for cascade
+    const timerRight = setTimeout(() => setIsVisibleRight(true), 500);
+    const timerButtons = setTimeout(() => setIsVisibleButtons(true), 800);
+
+    return () => {
+      clearTimeout(timerLeft);
+      clearTimeout(timerRight);
+      clearTimeout(timerButtons);
+    };
+  }, [isInView]);
+
   const icons = Array.from({ length: 8 }, (_, i) => i + 1);
 
   return (
     <>
-      <div className="flex h-[90vh] flex-col items-center justify-center">
+      <div ref={mainRef} className="flex h-[90vh] flex-col items-center justify-center">
         <div className="grid grid-cols-1 gap-0 px-4 py-10 sm:gap-4 md:grid-cols-2 md:gap-8 md:px-0">
-          {/* Left section */}
-          <div className="text-textPrimary flex flex-col items-center justify-center p-4 sm:p-6 md:p-8">
+          {/* Left section - fades/slides from left to right */}
+          <div
+            className={`text-textPrimary flex flex-col items-center justify-center p-4 transition-all duration-700 ease-out sm:p-6 md:p-8 ${
+              isVisibleLeft ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'
+            }`}
+          >
             <h2 className="text-center text-6xl leading-tight font-bold">
               I'm a Full-Stack Web Developer
             </h2>
@@ -82,8 +125,12 @@ export default function About() {
               ))}
             </div>
           </div>
-          {/* Right section */}
-          <div className="hidden items-center justify-center p-4 sm:p-6 md:flex md:p-8">
+          {/* Right section - fades/slides from right to left */}
+          <div
+            className={`hidden items-center justify-center p-4 transition-all duration-700 ease-out sm:p-6 md:flex md:p-8 ${
+              isVisibleRight ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+            }`}
+          >
             <div className="group relative">
               {' '}
               {/* Added relative wrapper for large image tooltip */}
@@ -101,7 +148,12 @@ export default function About() {
             </div>
           </div>
         </div>
-        <div className="flex items-center justify-center gap-5">
+        {/* Buttons - fade/slide from bottom to top */}
+        <div
+          className={`flex items-center justify-center gap-5 transition-all duration-700 ease-out ${
+            isVisibleButtons ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+          }`}
+        >
           <a href="/Dasalla - CV.pdf" download>
             <Button className="text-xl" variant="solid">
               VIEW CV

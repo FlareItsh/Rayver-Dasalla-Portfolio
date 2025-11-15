@@ -4,6 +4,9 @@ import Button from '../components/ui/Button'; // Adjust the import path as neede
 export default function Hero() {
   const [currentImage, setCurrentImage] = useState(1);
   const totalImages = 6;
+  const [isVisibleText, setIsVisibleText] = useState(false);
+  const [isVisibleImage, setIsVisibleImage] = useState(false);
+  const [isVisibleButton, setIsVisibleButton] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -13,12 +16,30 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
+  // Staggered animations: text at 500ms, image at 1000ms, button at 1500ms
+  useEffect(() => {
+    const timerText = setTimeout(() => setIsVisibleText(true), 500);
+    const timerImage = setTimeout(() => setIsVisibleImage(true), 1000);
+    const timerButton = setTimeout(() => setIsVisibleButton(true), 1500);
+
+    return () => {
+      clearTimeout(timerText);
+      clearTimeout(timerImage);
+      clearTimeout(timerButton);
+    };
+  }, []);
+
   const imagePath = `/src/assets/images/me_${currentImage}.png`;
 
   return (
     <div className="flex h-[80vh] flex-col px-4 md:px-20">
       <div className="flex flex-1 flex-col items-center justify-center md:flex-row md:items-center md:justify-center md:gap-32 md:py-12">
-        <div className="text-textPrimary order-2 flex max-w-md justify-center md:order-1">
+        {/* Left: Text - fades/slides from left to right */}
+        <div
+          className={`text-textPrimary order-2 flex max-w-md justify-center transition-all duration-700 ease-out md:order-1 ${
+            isVisibleText ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'
+          }`}
+        >
           <div className="flex flex-col text-center md:text-left">
             <span className="text-textPrimary/50 w-full text-left text-sm font-medium italic md:text-base">
               Hi I'm
@@ -32,15 +53,25 @@ export default function Hero() {
             </span>
           </div>
         </div>
-        <div className="order-1 flex max-w-md justify-center md:order-2">
+        {/* Right: Image - fades/slides from right to left */}
+        <div
+          className={`order-1 flex max-w-md justify-center transition-all duration-700 ease-out md:order-2 ${
+            isVisibleImage ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+          }`}
+        >
           <img
             src={imagePath}
             alt={`Me ${currentImage}`}
-            className="aspect-square max-w-md scale-75 rounded-lg object-cover drop-shadow-2xl lg:scale-100" // Increased scale-50 to scale-75 on smaller screens for bigger image
+            className="aspect-square max-w-md scale-75 rounded-lg object-cover drop-shadow-2xl lg:scale-100"
           />
         </div>
       </div>
-      <div className="flex justify-center pb-8 md:pb-12">
+      {/* Button: Fades/slides from bottom to top */}
+      <div
+        className={`flex justify-center pb-8 transition-all duration-700 ease-out md:pb-12 ${
+          isVisibleButton ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+        }`}
+      >
         <Button variant="solid" className="text-2xl">
           LET'S TALK?
         </Button>
