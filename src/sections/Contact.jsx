@@ -2,9 +2,27 @@ import React from 'react';
 import Button from '../components/ui/Button';
 
 export default function Contact() {
-  const handleSubmit = (e) => {
-    console.log('Form submitted!'); // Debug: Check console on submit to confirm it fires
-    // No preventDefault here—let Netlify handle the native form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent default for custom handling
+    const formData = new FormData(e.target);
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString(),
+      });
+
+      if (response.ok) {
+        alert('Message sent successfully!'); // Or update UI state
+        e.target.reset(); // Clear form
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (error) {
+      console.error('Form error:', error);
+      alert('Something went wrong—try again!');
+    }
   };
 
   return (
@@ -16,17 +34,11 @@ export default function Contact() {
 
         <form
           name="contact"
-          method="POST"
-          action="/" // Helps with SPA routing (e.g., React Router) by posting to root
-          encType="multipart/form-data" // Future-proofs for potential file uploads
           className="flex w-full max-w-md flex-col gap-6 md:gap-10"
-          data-netlify="true" // FIXED: This is the key—Netlify scans for this data attribute at build time
-          onSubmit={handleSubmit} // Optional: For client-side debugging (remove if no JS needed)
+          onSubmit={handleSubmit} // Now handles submission client-side
+          data-netlify="true"
         >
-          {/* Required hidden input for Netlify to identify the form */}
           <input type="hidden" name="form-name" value="contact" />
-
-          {/* Honeypot for spam protection—hidden from real users */}
           <p className="hidden">
             <label>
               Don’t fill this out: <input name="bot-field" />
