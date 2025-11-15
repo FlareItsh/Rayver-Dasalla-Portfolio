@@ -39,14 +39,26 @@ export default function Footer() {
             <p className="mb-3 text-lg font-semibold sm:mb-5 sm:text-xl">Follow Me</p>{' '}
             {/* Increased base to text-lg (18px) */}
             <div className="flex flex-col gap-3 sm:gap-5">
-              <a href="" className="transition-opacity hover:opacity-80">
+              <a
+                href="https://github.com/FlareItsh"
+                target="_blank"
+                className="transition-opacity hover:opacity-80"
+              >
                 <i className="fa-brands fa-github text-3xl sm:text-4xl"></i>{' '}
                 {/* Bumped base to text-3xl (30px) for larger mobile icons */}
               </a>
-              <a href="" className="transition-opacity hover:opacity-80">
+              <a
+                href="https://www.facebook.com/rayver.dasalla.7"
+                target="_blank"
+                className="transition-opacity hover:opacity-80"
+              >
                 <i className="fa-brands fa-facebook text-3xl sm:text-4xl"></i>
               </a>
-              <a href="" className="transition-opacity hover:opacity-80">
+              <a
+                href="https://www.linkedin.com/in/rayver-dasalla-617b95391/"
+                target="_blank"
+                className="transition-opacity hover:opacity-80"
+              >
                 <i className="fa-brands fa-linkedin text-3xl sm:text-4xl"></i>
               </a>
             </div>
