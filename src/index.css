@@ -1,0 +1,94 @@
+@import 'tailwindcss';
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+@theme {
+  --font-sans:
+    'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+
+  --font-primary: 'DM Sans', sans-serif;
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-light: var(--color-light);
+  --color-darkButtonPrimary: var(--color-darkButtonPrimary);
+  --color-lightButtonPrimary: var(--color-lightButtonPrimary);
+  --color-textPrimary: var(--color-textPrimary);
+  --color--textSecondary: var(--textSecondary);
+  --color-cardBackground: var(---cardBackground);
+}
+
+:root {
+  --color-primary: #16302b; /* Light background */
+  --color-secondary: #1a1a40; /* Accent */
+  --color-light: #ffffff; /* Light text/bg */
+  --color-darkButtonPrimary: #16302b;
+  --color-lightButtonPrimary: #ffffff;
+  --color-textPrimary: #16302b; /* Dark text */
+  --color-textSecondary: #ffffff; /* light text */
+  --color-cardBackground: #1e413a;
+}
+
+.dark {
+  --color-primary: #1e3a3a; /* Dark background */
+  --color-secondary: #2c2c54; /* Muted accent */
+  --color-darkButtonPrimary: #ffffff;
+  --color-lightButtonPrimary: #16302b;
+  --color-light: #16302b; /* Soft light */
+  --color-textPrimary: #ffffff; /* Light text */
+  --color-textSecondary: #16302b; /* light text */
+  --color-cardBackground: #2c2c54;
+}
+
+.hide-left {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 0.8s;
+}
+
+.show-left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.hide-right {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.8s;
+}
+
+.show-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.hide-top {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: all 0.8s;
+}
+
+.show-top {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hide-bottom {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.8s;
+}
+
+.show-bottom {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hide-top-long {
+  transform: translateY(-100%);
+  transition: all 1s;
+}
+
+.show-top-long {
+  transform: translateY(0);
+}
