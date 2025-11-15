@@ -109,7 +109,7 @@ export default function About() {
                   className="group relative flex h-20 w-full items-center justify-center py-2 md:h-16 md:py-0" // Added relative positioning and 'group' for hover state
                 >
                   <img
-                    src={`/src/assets/icons/icon_${iconNum}.png`}
+                    src={`/icons/icon_${iconNum}.png`}
                     alt={iconNames[iconNum]}
                     className={`h-full w-full cursor-help rounded-2xl object-contain drop-shadow-sm transition-transform duration-500 ease-in-out md:drop-shadow-2xl ${
                       iconNum === currentImage ? 'scale-110' : ''
@@ -135,7 +135,7 @@ export default function About() {
               {' '}
               {/* Added relative wrapper for large image tooltip */}
               <img
-                src={`/src/assets/icons/icon_${currentImage}.png`}
+                src={`/icons/icon_${currentImage}.png`}
                 alt={iconNames[currentImage]}
                 className="h-64 max-h-64 w-64 max-w-64 cursor-help rounded-lg object-contain drop-shadow-2xl sm:h-72 sm:max-h-72 sm:w-72 sm:max-w-72 md:h-96 md:max-h-96 md:w-96 md:max-w-96" // Added cursor-help
               />

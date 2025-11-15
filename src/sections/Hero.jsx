@@ -29,7 +29,7 @@ export default function Hero() {
     };
   }, []);
 
-  const imagePath = `/src/assets/images/me_${currentImage}.png`;
+  const imagePath = `/images/me_${currentImage}.png`;
 
   return (
     <div className="flex h-[80vh] flex-col px-4 md:px-20">
