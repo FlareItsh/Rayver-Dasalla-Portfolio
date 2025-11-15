@@ -12,8 +12,6 @@ export default function Contact() {
         <form
           name="contact"
           method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
           className="flex w-full max-w-md flex-col gap-6 md:gap-10"
           netlify
         >
