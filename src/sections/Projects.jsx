@@ -51,7 +51,7 @@ export default function Projects() {
         >
           Projects
         </h2>
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto">
           {/* Projects flex - fades/slides from bottom to top */}
           <div
             className={`flex flex-wrap justify-center gap-5 transition-all duration-700 ease-out ${

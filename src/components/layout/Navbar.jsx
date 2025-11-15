@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sun, Moon, Menu } from 'lucide-react';
+import { Sun, Moon, Menu, X } from 'lucide-react';
 
 export default function Navbar() {
   const [darkMode, setDarkMode] = useState(false);
@@ -149,11 +149,21 @@ export default function Navbar() {
         </div>
       </nav>
       {isMobile && (
-        <ul
-          className={` ${isOpen ? 'translate-x-0' : 'translate-x-full'} bg-primary fixed inset-y-0 right-0 z-50 flex w-80 flex-col gap-0 overflow-y-auto px-4 py-5 text-base shadow-lg transition-transform duration-300 ease-in-out`}
+        <div
+          className={`bg-primary fixed inset-y-0 right-0 z-50 flex w-72 flex-col overflow-y-auto shadow-lg transition-transform duration-300 ease-in-out ${
+            isOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
         >
-          {mobileNavLinks}
-        </ul>
+          <div className="flex justify-end p-4">
+            <button
+              onClick={() => setIsOpen(false)}
+              className="rounded-full p-1 transition-all duration-300 ease-in-out hover:bg-white/10"
+            >
+              <X size={24} className="text-white" />
+            </button>
+          </div>
+          <ul className="flex flex-col gap-0 px-4 pb-5 text-base">{mobileNavLinks}</ul>
+        </div>
       )}
       {isMobile && isOpen && (
         <div

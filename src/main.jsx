@@ -12,19 +12,19 @@ import Footer from './components/layout/Footer.jsx';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Navbar />
-    <section className="scroll-m-25" id="home">
+    <section className="scroll-m-25 py-4 md:py-10" id="home">
       <Hero />
     </section>
-    <section className="scroll-m-20" id="about">
+    <section className="scroll-m-20 py-4 md:py-10" id="about">
       <About />
     </section>
-    <section>
+    <section className="scroll-m-20 py-4 md:py-10">
       <Skills />
     </section>
-    <section className="scroll-m-40" id="projects">
+    <section className="scroll-m-40 py-4 md:py-10" id="projects">
       <Projects />
     </section>
-    <section className="scroll-m-20" id="contact">
+    <section className="scroll-m-20 py-4 md:py-10" id="contact">
       <Contact />
     </section>
     <Footer />
