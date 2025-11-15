@@ -41,14 +41,16 @@ export default function Hero() {
           }`}
         >
           <div className="flex flex-col text-center md:text-left">
-            <span className="text-textPrimary/50 w-full text-left text-sm font-medium italic md:text-base">
+            <span className="text-textPrimary/50 w-full text-left text-xs font-medium italic sm:text-sm md:text-base">
               Hi I'm
             </span>
-            <h1 className="w-full text-left text-6xl font-bold md:text-6xl lg:text-9xl">RAYVER</h1>
-            <h1 className="w-full text-right text-6xl font-bold md:text-6xl lg:text-9xl">
+            <h1 className="w-full text-left text-4xl font-bold sm:text-5xl md:text-6xl lg:text-9xl">
+              RAYVER
+            </h1>
+            <h1 className="w-full text-center text-4xl font-bold sm:text-right sm:text-5xl md:text-right md:text-6xl lg:text-9xl">
               DASALLA
             </h1>
-            <span className="text-textPrimary/50 w-full text-right text-sm font-medium italic md:text-base">
+            <span className="text-textPrimary/50 w-full text-center text-xs font-medium italic sm:text-right sm:text-sm md:text-base">
               (Flare)
             </span>
           </div>
@@ -62,7 +64,7 @@ export default function Hero() {
           <img
             src={imagePath}
             alt={`Me ${currentImage}`}
-            className="aspect-square max-w-md scale-75 rounded-lg object-cover drop-shadow-2xl lg:scale-100"
+            className="aspect-square max-w-[250px] scale-75 rounded-lg object-cover drop-shadow-2xl sm:max-w-md lg:scale-100"
           />
         </div>
       </div>
@@ -72,9 +74,11 @@ export default function Hero() {
           isVisibleButton ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}
       >
-        <Button variant="solid" className="text-2xl">
-          LET'S TALK?
-        </Button>
+        <a href="#contact">
+          <Button variant="solid" className="text-lg sm:text-xl md:text-2xl">
+            LET'S TALK?
+          </Button>
+        </a>
       </div>
     </div>
   );

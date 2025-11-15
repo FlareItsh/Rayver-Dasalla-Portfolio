@@ -27,14 +27,14 @@ export default function Contact() {
 
   return (
     <>
-      <div className="text-textPrimary my-20 flex min-h-[70vh] flex-col items-center justify-center px-4 md:px-0">
+      <div className="text-textPrimary my-20 flex min-h-[70vh] flex-col items-center justify-center px-4 sm:px-8 md:px-12">
         <h2 className="mb-6 text-center text-4xl font-bold sm:text-5xl md:mb-10 lg:text-6xl">
           Contact Me
         </h2>
 
         <form
           name="contact"
-          className="flex w-full max-w-md flex-col gap-6 md:gap-10"
+          className="flex w-full max-w-md flex-col gap-4 sm:gap-6 md:gap-10"
           onSubmit={handleSubmit} // Now handles submission client-side
           data-netlify="true"
         >
@@ -48,7 +48,7 @@ export default function Contact() {
           <input
             type="text"
             name="name"
-            className="focus:ring-primary w-full rounded-sm border px-4 py-3 text-base focus:ring-2 focus:outline-none md:text-lg"
+            className="focus:ring-primary w-full rounded-sm border px-3 py-3 text-sm focus:ring-2 focus:outline-none sm:text-base md:px-4 md:text-lg"
             placeholder="Your Name"
             required
           />
@@ -56,14 +56,14 @@ export default function Contact() {
           <input
             type="email"
             name="email"
-            className="focus:ring-primary w-full rounded-sm border px-4 py-3 text-base focus:ring-2 focus:outline-none md:text-lg"
+            className="focus:ring-primary w-full rounded-sm border px-3 py-3 text-sm focus:ring-2 focus:outline-none sm:text-base md:px-4 md:text-lg"
             placeholder="Your email"
             required
           />
 
           <textarea
             name="message"
-            className="focus:ring-primary resize-vertical min-h-32 w-full rounded-sm border px-4 py-3 text-base focus:ring-2 focus:outline-none md:text-lg"
+            className="focus:ring-primary resize-vertical min-h-24 w-full rounded-sm border px-3 py-3 text-sm focus:ring-2 focus:outline-none sm:min-h-32 sm:text-base md:px-4 md:text-lg"
             placeholder="Your message"
             required
           ></textarea>

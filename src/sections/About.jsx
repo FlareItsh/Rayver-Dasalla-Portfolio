@@ -98,7 +98,7 @@ export default function About() {
               isVisibleLeft ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'
             }`}
           >
-            <h2 className="text-center text-6xl leading-tight font-bold">
+            <h2 className="text-center text-4xl leading-tight font-bold sm:text-5xl md:text-6xl">
               I'm a Full-Stack Web Developer
             </h2>
 
@@ -150,18 +150,18 @@ export default function About() {
         </div>
         {/* Buttons - fade/slide from bottom to top */}
         <div
-          className={`flex items-center justify-center gap-5 transition-all duration-700 ease-out ${
+          className={`flex flex-col items-center justify-center gap-3 transition-all duration-700 ease-out sm:flex-row sm:gap-5 ${
             isVisibleButtons ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}
         >
           <a href="/Dasalla - CV.pdf" download>
-            <Button className="text-xl" variant="solid">
+            <Button className="text-base sm:text-lg md:text-xl" variant="solid">
               VIEW CV
             </Button>
           </a>
 
           <a href="#contact">
-            <Button className="text-xl" variant="outlined">
+            <Button className="text-base sm:text-lg md:text-xl" variant="outlined">
               {' '}
               LET'S WORK TOGETHER
             </Button>
