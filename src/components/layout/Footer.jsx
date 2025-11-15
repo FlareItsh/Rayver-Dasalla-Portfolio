@@ -22,12 +22,12 @@ export default function Footer() {
           {/* Center Section: Logo & Name */}
           <div className="order-1 flex flex-col items-center gap-4 lg:order-2">
             <img
-              src="/public/RD Logo Light.png"
+              src="/RD Logo Light.png"
               alt="Rayver Dasalla"
               className="h-auto w-40 sm:w-52 lg:w-64"
             />{' '}
             {/* Increased base to w-40 (160px) for larger mobile logo */}
-            <h2 className="text-center text-4xl leading-tight font-bold sm:text-6xl lg:text-7xl">
+            <h2 className="text-4xl leading-tight font-bold sm:text-6xl lg:text-7xl">
               {' '}
               {/* Bumped base to text-4xl (36px) for bigger mobile name */}
               RAYVER <br /> DASALLA
