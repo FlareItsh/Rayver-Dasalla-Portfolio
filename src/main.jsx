@@ -21,7 +21,7 @@ createRoot(document.getElementById('root')).render(
     <section className="scroll-m-20 py-4 md:py-10">
       <Skills />
     </section>
-    <section className="scroll-m-40 py-4 md:py-10" id="projects">
+    <section className="scroll-m-20 py-4 md:py-10" id="projects">
       <Projects />
     </section>
     <section className="scroll-m-20 py-4 md:py-10" id="contact">
