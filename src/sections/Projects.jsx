@@ -42,16 +42,16 @@ export default function Projects() {
 
   return (
     <>
-      <div ref={mainRef} className="my-20 px-20">
+      <div ref={mainRef} className="my-10 px-4 sm:px-8 md:my-20 md:px-20">
         {/* Title - fades/slides from left to right */}
         <h2
-          className={`text-textPrimary my-10 text-left text-6xl font-bold transition-all duration-700 ease-out ${
+          className={`text-textPrimary my-10 text-left text-4xl font-bold transition-all duration-700 ease-out sm:text-5xl md:text-6xl ${
             isVisibleTitle ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'
           }`}
         >
           Projects
         </h2>
-        <div className="mx-auto">
+        <div className="mx-auto max-w-7xl">
           {/* Projects flex - fades/slides from bottom to top */}
           <div
             className={`flex flex-wrap justify-center gap-5 transition-all duration-700 ease-out ${
