@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ExternalLink } from 'lucide-react';
-import SkillCard from '../components/ui/Skill-Card';
+import ProjectCard from '../components/ui/Project-Card';
 
 export default function Projects() {
   const [isInView, setIsInView] = useState(false); // Trigger for scroll visibility
@@ -52,32 +51,31 @@ export default function Projects() {
           Projects
         </h2>
         <div className="mx-auto">
-          {/* Projects flex - fades/slides from bottom to top */}
+          {/* Projects grid - fades/slides from bottom to top */}
           <div
-            className={`flex flex-wrap justify-center gap-5 transition-all duration-700 ease-out ${
+            className={`grid grid-cols-1 justify-items-center gap-5 transition-all duration-700 ease-out sm:grid-cols-2 lg:grid-cols-3 ${
               isVisibleProjects ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}
           >
-            {/* Switched to flex-wrap for dynamic wrapping; avoids overlap on narrow screens by wrapping based on min-w-[300px] in SkillCard */}
-            <SkillCard
+            <ProjectCard
               imageSrc="/images/Porshe-Page.png"
               imageAlt="Project Image"
               title="Porshe Corporate Website"
               subtitle="Corporate Website showcasing Porshe's Story to Greatness."
-              languages={['/icons/icon_9.png', '/icons/icon_3.png']} // Array of icon srcs
-              link="https://github.com/FlareItsh/Porshe-Cloned.git"
-              indicator={<ExternalLink />}
+              languages={['/icons/icon_8.png', '/icons/icon_3.png']}
+              githubLink="https://github.com/FlareItsh/Porshe-Cloned.git"
+              liveDemoLink="https://porshe-cloned.infinityfree.me/"
             />
-            <SkillCard
+            <ProjectCard
               imageSrc="/images/Gatepass.png"
               imageAlt="Project Image"
               title="STI Gatepass System"
               subtitle="Gatepass System for STI Events."
-              languages={['/icons/icon_5.png', '/icons/icon_6.png']} // Array of icon srcs
-              link="https://example.com"
-              indicator={<ExternalLink />}
+              languages={['/icons/icon_2.png', '/icons/icon_6.png']}
+              githubLink="https://github.com/FlareItsh/SSC-Events-Gatepass-System.git"
+              liveDemoLink="https://gatepass-carl4dev.netlify.app/"
             />
-            <SkillCard
+            <ProjectCard
               imageSrc="/images/Gearhead.png"
               imageAlt="Project Image"
               title="Gearhead Carwash (Work in Progress)"
@@ -85,11 +83,11 @@ export default function Projects() {
               languages={[
                 '/icons/icon_1.png',
                 '/icons/icon_2.png',
-                '/icons/icon_6.png',
+                '/icons/icon_9.png',
                 '/icons/icon_10.png',
-              ]} // Array of icon srcs
-              link="https://github.com/FlareItsh/Gearhead.git"
-              indicator={<ExternalLink />}
+              ]}
+              githubLink="https://github.com/FlareItsh/Gearhead.git"
+              liveDemoLink="https://gearhead-master-swtxlj.laravel.cloud/"
             />
           </div>
         </div>

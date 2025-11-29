@@ -32,7 +32,7 @@ export default function Hero() {
   const imagePath = `/images/me_${currentImage}.png`;
 
   return (
-    <div className="flex h-[80vh] flex-col px-4 md:px-20">
+    <div className="flex min-h-[80vh] flex-col px-4 md:px-20">
       <div className="flex flex-1 flex-col items-center justify-center md:flex-row md:items-center md:justify-center md:gap-32 md:py-12">
         {/* Left: Text - fades/slides from left to right */}
         <div

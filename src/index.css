@@ -16,6 +16,7 @@
   --color-textPrimary: var(--color-textPrimary);
   --color--textSecondary: var(--textSecondary);
   --color-cardBackground: var(---cardBackground);
+  --color-modalBackground: var(--color-modalBackground);
 }
 
 :root {
@@ -27,6 +28,7 @@
   --color-textPrimary: #16302b; /* Dark text */
   --color-textSecondary: #ffffff; /* light text */
   --color-cardBackground: #1e413a;
+  --color-modalBackground: #ffffff; /* Modal background */
 }
 
 .dark {
@@ -38,6 +40,7 @@
   --color-textPrimary: #ffffff; /* Light text */
   --color-textSecondary: #16302b; /* light text */
   --color-cardBackground: #2c2c54;
+  --color-modalBackground: #ffffff; /* Modal background */
 }
 
 .hide-left {

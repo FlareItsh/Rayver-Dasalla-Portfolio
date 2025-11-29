@@ -4,11 +4,12 @@ import Button from '../components/ui/Button';
 export default function About() {
   const [currentImage, setCurrentImage] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
-  const totalImages = 8;
+  const totalImages = 12;
   const [isInView, setIsInView] = useState(false); // Trigger for scroll visibility
   const [isVisibleLeft, setIsVisibleLeft] = useState(false); // For left section (title + icons)
   const [isVisibleRight, setIsVisibleRight] = useState(false); // For right section (large image)
   const [isVisibleButtons, setIsVisibleButtons] = useState(false); // For buttons
+  const [flippedIcon, setFlippedIcon] = useState(null); // Track which icon is flipped (mobile only)
   const mainRef = useRef(null); // Ref for intersection observer
 
   // Mapping for icon names shown on hover
@@ -17,10 +18,14 @@ export default function About() {
     2: 'React',
     3: 'Tailwind CSS',
     4: 'JavaScript',
-    5: 'C#',
-    6: 'MySQL',
-    7: 'Microsoft SQL Server',
-    8: 'Figma',
+    5: 'Vue',
+    6: 'Nuxt',
+    7: 'C#',
+    8: 'PHP',
+    9: 'Inertia',
+    10: 'MySql',
+    11: 'MSSQL Server',
+    12: 'Figma',
   };
 
   useEffect(() => {
@@ -86,11 +91,11 @@ export default function About() {
     };
   }, [isInView]);
 
-  const icons = Array.from({ length: 8 }, (_, i) => i + 1);
+  const icons = Array.from({ length: 12 }, (_, i) => i + 1);
 
   return (
     <>
-      <div ref={mainRef} className="flex h-[90vh] flex-col items-center justify-center">
+      <div ref={mainRef} className="flex min-h-[90vh] flex-col items-center justify-center">
         <div className="grid grid-cols-1 gap-0 px-4 py-10 sm:gap-4 md:grid-cols-2 md:gap-8 md:px-0">
           {/* Left section - fades/slides from left to right */}
           <div
@@ -106,21 +111,47 @@ export default function About() {
               {icons.map((iconNum) => (
                 <div
                   key={iconNum}
-                  className="group relative flex h-20 w-full items-center justify-center py-2 md:h-16 md:py-0" // Added relative positioning and 'group' for hover state
+                  className="group relative flex aspect-square h-20 w-20 items-center justify-center py-2 md:h-16 md:w-16 md:py-0"
+                  onClick={() => {
+                    if (isMobile) {
+                      setFlippedIcon(flippedIcon === iconNum ? null : iconNum);
+                    }
+                  }}
+                  style={{ perspective: '1000px' }}
                 >
-                  <img
-                    src={`/icons/icon_${iconNum}.png`}
-                    alt={iconNames[iconNum]}
-                    className={`h-full w-full cursor-help rounded-2xl object-contain drop-shadow-sm transition-transform duration-500 ease-in-out md:drop-shadow-2xl ${
-                      iconNum === currentImage ? 'scale-110' : ''
-                    }`} // Added cursor-help for visual hover cue
-                  />
-                  {/* Custom tooltip - appears on hover with enhanced styles */}
-                  <span className="bg-primary/90 absolute bottom-full left-1/2 z-10 mb-3 -translate-x-1/2 rounded-lg px-3 py-2 text-sm font-medium whitespace-nowrap text-white opacity-0 shadow-lg transition-all duration-200 ease-in-out group-hover:opacity-100">
+                  <div
+                    className={`relative h-full w-full transition-transform duration-500 ${
+                      isMobile && flippedIcon === iconNum ? 'transform-[rotateY(180deg)]' : ''
+                    }`}
+                    style={{ transformStyle: 'preserve-3d' }}
+                  >
+                    {/* Front side - Icon */}
+                    <div
+                      className="absolute inset-0 flex items-center justify-center"
+                      style={{ backfaceVisibility: 'hidden' }}
+                    >
+                      <img
+                        src={`/icons/icon_${iconNum}.png`}
+                        alt={iconNames[iconNum]}
+                        className={`h-full w-full cursor-pointer rounded-2xl object-contain drop-shadow-sm transition-transform duration-500 ease-in-out md:cursor-help md:drop-shadow-2xl ${
+                          iconNum === currentImage ? 'scale-110' : ''
+                        }`}
+                      />
+                    </div>
+                    {/* Back side - Icon Name (mobile only) */}
+                    <div
+                      className="bg-primary/90 absolute inset-0 flex items-center justify-center rounded-2xl p-2 text-center text-sm font-bold text-white md:hidden"
+                      style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+                    >
+                      {iconNames[iconNum]}
+                    </div>
+                  </div>
+                  {/* Desktop tooltip - only visible on md and up */}
+                  <span className="bg-primary/90 absolute bottom-full left-1/2 z-10 mb-3 hidden -translate-x-1/2 rounded-lg px-3 py-2 text-sm font-medium whitespace-nowrap text-white opacity-0 shadow-lg transition-all duration-200 ease-in-out group-hover:opacity-100 md:block">
                     {iconNames[iconNum]}
                   </span>
-                  {/* Arrow pointer for tooltip */}
-                  <span className="bg-primary/90 absolute bottom-full left-1/2 z-10 mb-1 h-2 w-2 -translate-x-1/2 rotate-45 opacity-0 transition-all duration-200 ease-in-out group-hover:opacity-100"></span>
+                  {/* Arrow pointer for tooltip - only visible on md and up */}
+                  <span className="bg-primary/90 absolute bottom-full left-1/2 z-10 mb-1 hidden h-2 w-2 -translate-x-1/2 rotate-45 opacity-0 transition-all duration-200 ease-in-out group-hover:opacity-100 md:block"></span>
                 </div>
               ))}
             </div>
