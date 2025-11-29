@@ -78,7 +78,7 @@ export default function Projects() {
             <ProjectCard
               imageSrc="/images/Gearhead.png"
               imageAlt="Project Image"
-              title="Gearhead Carwash (Work in Progress)"
+              title="Gearhead Carwash"
               subtitle="Modern web-based platform that streamlines carwash operations, reduces human error, and delivers real-time analytics."
               languages={[
                 '/icons/icon_1.png',
