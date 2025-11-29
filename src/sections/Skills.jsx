@@ -58,9 +58,9 @@ export default function Skills() {
             }`}
           >
             {/* Skill Card */}
-            <div className="w-full space-y-3 rounded-lg bg-white/5 p-3 sm:space-y-4 sm:p-4 md:space-y-5 md:p-6">
+            <div className="group w-full space-y-3 rounded-lg bg-white/5 p-3 transition-all duration-500 hover:-translate-y-2 hover:bg-white/10 hover:shadow-[0_10px_40px_-10px_rgba(255,255,255,0.2)] sm:space-y-4 sm:p-4 md:space-y-5 md:p-6">
               <div className="flex items-center gap-2">
-                <Component className="h-6 w-6 flex-shrink-0 sm:h-8 sm:w-8 md:h-10 md:w-10" />
+                <Component className="h-6 w-6 flex-shrink-0 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12 sm:h-8 sm:w-8 md:h-10 md:w-10" />
                 <h3 className="text-xl font-bold sm:text-2xl md:text-3xl lg:text-4xl">
                   Web Designing
                 </h3>
@@ -76,9 +76,9 @@ export default function Skills() {
               </div>
             </div>
             {/* Skill Card */}
-            <div className="w-full space-y-3 rounded-lg bg-white/5 p-3 sm:space-y-4 sm:p-4 md:space-y-5 md:p-6">
+            <div className="group w-full space-y-3 rounded-lg bg-white/5 p-3 transition-all duration-500 hover:-translate-y-2 hover:bg-white/10 hover:shadow-[0_10px_40px_-10px_rgba(255,255,255,0.2)] sm:space-y-4 sm:p-4 md:space-y-5 md:p-6">
               <div className="flex items-center gap-2">
-                <LayoutDashboard className="h-6 w-6 flex-shrink-0 sm:h-8 sm:w-8 md:h-10 md:w-10" />
+                <LayoutDashboard className="h-6 w-6 flex-shrink-0 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12 sm:h-8 sm:w-8 md:h-10 md:w-10" />
                 <h3 className="text-xl font-bold sm:text-2xl md:text-3xl lg:text-4xl">
                   Front-End Development
                 </h3>
@@ -94,9 +94,9 @@ export default function Skills() {
               </div>
             </div>
             {/* Skill Card */}
-            <div className="w-full space-y-3 rounded-lg bg-white/5 p-3 sm:space-y-4 sm:p-4 md:space-y-5 md:p-6">
+            <div className="group w-full space-y-3 rounded-lg bg-white/5 p-3 transition-all duration-500 hover:-translate-y-2 hover:bg-white/10 hover:shadow-[0_10px_40px_-10px_rgba(255,255,255,0.2)] sm:space-y-4 sm:p-4 md:space-y-5 md:p-6">
               <div className="flex items-center gap-2">
-                <Database className="h-6 w-6 flex-shrink-0 sm:h-8 sm:w-8 md:h-10 md:w-10" />
+                <Database className="h-6 w-6 flex-shrink-0 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12 sm:h-8 sm:w-8 md:h-10 md:w-10" />
                 <h3 className="text-xl font-bold sm:text-2xl md:text-3xl lg:text-4xl">
                   Back-End Development
                 </h3>

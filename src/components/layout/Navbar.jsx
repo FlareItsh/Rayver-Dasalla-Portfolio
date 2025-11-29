@@ -90,9 +90,27 @@ export default function Navbar() {
     <a
       href={`#${item.id}`}
       onClick={isMobile ? () => setIsOpen(false) : undefined}
-      className={`relative block text-white transition-all duration-300 ease-in-out after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:origin-left after:bg-white after:transition-all after:duration-300 after:ease-in-out after:content-[''] hover:opacity-80 ${isMobile ? 'underline-offset-2' : 'underline-offset-4'} ${activeLink === item.id ? 'after:w-full' : ''} `}
+      className={`group relative block transition-all duration-300 ease-in-out ${
+        isMobile
+          ? `rounded-lg px-4 py-3 text-lg ${
+              activeLink === item.id
+                ? 'bg-white/10 font-bold text-white'
+                : 'font-normal text-white/70 hover:bg-white/5 hover:text-white'
+            }`
+          : `text-base ${
+              activeLink === item.id
+                ? 'font-bold text-white'
+                : 'font-normal text-white/70 hover:text-white'
+            }`
+      }`}
     >
-      {item.text}
+      <span className="relative">
+        {item.text}
+        {/* Glowing dot indicator for active link - desktop only */}
+        {!isMobile && activeLink === item.id && (
+          <span className="absolute -bottom-2 left-1/2 h-1.5 w-1.5 -translate-x-1/2 animate-pulse rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]"></span>
+        )}
+      </span>
     </a>
   );
 
@@ -107,7 +125,7 @@ export default function Navbar() {
   );
 
   const mobileNavLinks = navItems.map((item) => (
-    <li key={item.id} className="py-4">
+    <li key={item.id} className="group">
       <Link item={item} isMobile={true} />
     </li>
   ));
@@ -150,19 +168,31 @@ export default function Navbar() {
       </nav>
       {isMobile && (
         <div
-          className={`bg-primary fixed inset-y-0 right-0 z-50 flex w-72 flex-col overflow-y-auto shadow-lg transition-transform duration-300 ease-in-out ${
+          className={`bg-primary fixed inset-y-0 right-0 z-50 flex w-80 flex-col overflow-y-auto shadow-2xl backdrop-blur-sm transition-transform duration-300 ease-in-out ${
             isOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
-          <div className="flex justify-end p-4">
-            <button
-              onClick={() => setIsOpen(false)}
-              className="rounded-full p-1 transition-all duration-300 ease-in-out hover:bg-white/10"
-            >
-              <X size={24} className="text-white" />
-            </button>
+          {/* Header Section */}
+          <div className="border-b border-white/10 p-6">
+            <div className="mb-4 flex items-center justify-between">
+              <img className="h-12 w-12" src="/RD Logo Light.png" alt="Rayver Dasalla" />
+              <button
+                onClick={() => setIsOpen(false)}
+                className="rounded-full p-2 transition-all duration-300 ease-in-out hover:rotate-90 hover:bg-white/10"
+              >
+                <X size={24} className="text-white" />
+              </button>
+            </div>
+            <div className="text-sm font-medium text-white/80">Navigation</div>
           </div>
-          <ul className="flex flex-col gap-0 px-4 pb-5 text-base">{mobileNavLinks}</ul>
+
+          {/* Navigation Links */}
+          <ul className="flex flex-1 flex-col gap-2 px-6 py-6">{mobileNavLinks}</ul>
+
+          {/* Footer Section */}
+          <div className="border-t border-white/10 p-6">
+            <p className="text-center text-xs text-white/60">© 2025 Rayver Dasalla</p>
+          </div>
         </div>
       )}
       {isMobile && isOpen && (

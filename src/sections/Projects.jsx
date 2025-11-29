@@ -41,7 +41,12 @@ export default function Projects() {
 
   return (
     <>
-      <div ref={mainRef} className="my-10 px-4 sm:px-8 md:my-20 md:px-20">
+      <div ref={mainRef} className="relative my-10 px-4 sm:px-8 md:my-20 md:px-20">
+        {/* Section Number Background */}
+        <div className="pointer-events-none absolute top-0 right-4 text-[12rem] leading-none font-black opacity-[0.03] select-none sm:right-10 sm:text-[16rem] md:text-[20rem]">
+          02
+        </div>
+
         {/* Title - fades/slides from left to right */}
         <h2
           className={`text-textPrimary my-10 text-left text-4xl font-bold transition-all duration-700 ease-out sm:text-5xl md:text-6xl ${
@@ -71,7 +76,7 @@ export default function Projects() {
               imageAlt="Project Image"
               title="STI Gatepass System"
               subtitle="Gatepass System for STI Events."
-              languages={['/icons/icon_2.png', '/icons/icon_6.png']}
+              languages={['/icons/icon_2.png', '/icons/icon_3.png']}
               githubLink="https://github.com/FlareItsh/SSC-Events-Gatepass-System.git"
               liveDemoLink="https://gatepass-carl4dev.netlify.app/"
             />

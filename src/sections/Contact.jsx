@@ -44,7 +44,12 @@ export default function Contact() {
 
   return (
     <>
-      <div className="text-textPrimary my-20 flex min-h-[70vh] flex-col items-center justify-center px-4 sm:px-8 md:px-12">
+      <div className="text-textPrimary relative my-20 flex min-h-[70vh] flex-col items-center justify-center px-4 sm:px-8 md:px-12">
+        {/* Section Number Background */}
+        <div className="pointer-events-none absolute top-0 left-4 text-[12rem] leading-none font-black opacity-[0.03] select-none sm:left-10 sm:text-[16rem] md:text-[20rem]">
+          03
+        </div>
+
         <h2 className="mb-6 text-center text-4xl font-bold sm:text-5xl md:mb-10 lg:text-6xl">
           Contact Me
         </h2>

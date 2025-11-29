@@ -13,11 +13,17 @@ const ProjectCard = ({
 }) => {
   const cardContent = (
     <div
-      className={`hover:shadow-3xl flex w-full flex-col overflow-hidden rounded-lg border border-gray-400/20 shadow-2xl transition-all duration-300 ease-in-out hover:scale-105 hover:border-gray-500/50 ${className}`}
+      className={`group relative flex w-full flex-col overflow-hidden rounded-lg border border-gray-400/20 shadow-2xl transition-all duration-500 ease-out hover:-translate-y-2 hover:border-gray-500/50 hover:shadow-[0_20px_60px_-15px_rgba(255,255,255,0.2)] ${className}`}
     >
       {/* Top section: Image - Fixed h-48 container ensures consistent height; image fills full width/height with crop if needed */}
       <div className="relative h-40 overflow-hidden">
-        <img src={imageSrc} alt={imageAlt} className="h-full w-full object-cover" />
+        <img
+          src={imageSrc}
+          alt={imageAlt}
+          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+        />
+        {/* Gradient overlay that appears on hover */}
+        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
       </div>
 
       {/* Bottom section: Title, subtitle, languages, and link buttons */}

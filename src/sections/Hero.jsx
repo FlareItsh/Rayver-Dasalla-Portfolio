@@ -7,6 +7,14 @@ export default function Hero() {
   const [isVisibleText, setIsVisibleText] = useState(false);
   const [isVisibleImage, setIsVisibleImage] = useState(false);
   const [isVisibleButton, setIsVisibleButton] = useState(false);
+  const [isVisibleTagline, setIsVisibleTagline] = useState(false);
+  const [typedText1, setTypedText1] = useState('');
+  const [typedText2, setTypedText2] = useState('');
+  const [showCursor1, setShowCursor1] = useState(false);
+  const [showCursor2, setShowCursor2] = useState(false);
+
+  const fullText1 = 'RAYVER';
+  const fullText2 = 'DASALLA';
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -21,13 +29,50 @@ export default function Hero() {
     const timerText = setTimeout(() => setIsVisibleText(true), 500);
     const timerImage = setTimeout(() => setIsVisibleImage(true), 1000);
     const timerButton = setTimeout(() => setIsVisibleButton(true), 1500);
+    const timerTagline = setTimeout(() => setIsVisibleTagline(true), 3500); // After typing completes
 
     return () => {
       clearTimeout(timerText);
       clearTimeout(timerImage);
       clearTimeout(timerButton);
+      clearTimeout(timerTagline);
     };
   }, []);
+
+  // Typing effect for first name - starts after fade-in
+  useEffect(() => {
+    if (!isVisibleText) return;
+
+    setShowCursor1(true);
+    let currentIndex = 0;
+    const typingTimer = setTimeout(() => {
+      const interval = setInterval(() => {
+        if (currentIndex <= fullText1.length) {
+          setTypedText1(fullText1.slice(0, currentIndex));
+          currentIndex++;
+        } else {
+          clearInterval(interval);
+          setShowCursor1(false);
+          // Start typing second name
+          setTimeout(() => {
+            setShowCursor2(true);
+            let index2 = 0;
+            const interval2 = setInterval(() => {
+              if (index2 <= fullText2.length) {
+                setTypedText2(fullText2.slice(0, index2));
+                index2++;
+              } else {
+                clearInterval(interval2);
+                setShowCursor2(false);
+              }
+            }, 100);
+          }, 200);
+        }
+      }, 100);
+    }, 700); // Start typing 700ms after fade-in
+
+    return () => clearTimeout(typingTimer);
+  }, [isVisibleText]);
 
   const imagePath = `/images/me_${currentImage}.png`;
 
@@ -45,14 +90,25 @@ export default function Hero() {
               Hi I'm
             </span>
             <h1 className="w-full text-left text-4xl font-bold sm:text-5xl md:text-6xl lg:text-9xl">
-              RAYVER
+              {typedText1}
+              {showCursor1 && <span className="animate-pulse">|</span>}
             </h1>
             <h1 className="w-full text-center text-4xl font-bold sm:text-right sm:text-5xl md:text-right md:text-6xl lg:text-9xl">
-              DASALLA
+              {typedText2}
+              {showCursor2 && <span className="animate-pulse">|</span>}
             </h1>
             <span className="text-textPrimary/50 w-full text-center text-xs font-medium italic sm:text-right sm:text-sm md:text-base">
               (Flare)
             </span>
+
+            {/* Personal Tagline */}
+            <p
+              className={`text-textPrimary/70 mt-4 w-full text-center text-sm font-medium transition-all duration-700 ease-out sm:text-right sm:text-base md:text-lg ${
+                isVisibleTagline ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+              }`}
+            >
+              Crafting elegant solutions, one line at a time ✨
+            </p>
           </div>
         </div>
         {/* Right: Image - fades/slides from right to left */}

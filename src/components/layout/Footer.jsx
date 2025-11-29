@@ -36,30 +36,31 @@ export default function Footer() {
 
           {/* Right Section: Social Links */}
           <div className="order-3 flex flex-col items-center gap-3 sm:gap-5 lg:order-3">
-            <p className="mb-3 text-lg font-semibold sm:mb-5 sm:text-xl">Follow Me</p>{' '}
-            {/* Increased base to text-lg (18px) */}
+            <p className="mb-3 text-lg font-semibold sm:mb-5 sm:text-xl">Follow Me</p>
             <div className="flex flex-col gap-3 sm:gap-5">
               <a
                 href="https://github.com/FlareItsh"
                 target="_blank"
-                className="transition-opacity hover:opacity-80"
+                rel="noopener noreferrer"
+                className="group relative transition-transform duration-300 hover:scale-110"
               >
-                <i className="fa-brands fa-github text-3xl sm:text-4xl"></i>{' '}
-                {/* Bumped base to text-3xl (30px) for larger mobile icons */}
+                <i className="fa-brands fa-github text-3xl transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] sm:text-4xl"></i>
               </a>
               <a
                 href="https://www.facebook.com/rayver.dasalla.7"
                 target="_blank"
-                className="transition-opacity hover:opacity-80"
+                rel="noopener noreferrer"
+                className="group relative transition-transform duration-300 hover:scale-110"
               >
-                <i className="fa-brands fa-facebook text-3xl sm:text-4xl"></i>
+                <i className="fa-brands fa-facebook text-3xl transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] sm:text-4xl"></i>
               </a>
               <a
                 href="https://www.linkedin.com/in/rayver-dasalla-617b95391/"
                 target="_blank"
-                className="transition-opacity hover:opacity-80"
+                rel="noopener noreferrer"
+                className="group relative transition-transform duration-300 hover:scale-110"
               >
-                <i className="fa-brands fa-linkedin text-3xl sm:text-4xl"></i>
+                <i className="fa-brands fa-linkedin text-3xl transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] sm:text-4xl"></i>
               </a>
             </div>
           </div>
