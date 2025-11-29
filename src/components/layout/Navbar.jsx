@@ -130,7 +130,7 @@ export default function Navbar() {
             className="relative rounded-full p-1 transition-all duration-500 ease-out hover:bg-white/10"
           >
             <div
-              className={`transition-transform duration-500 ease-out ${darkMode ? 'rotate-180' : ''}`}
+              className={`transition-transform duration-500 ease-out ${darkMode ? 'rotate-360' : ''}`}
             >
               {darkMode ? (
                 <Moon size={32} className="text-white" />
