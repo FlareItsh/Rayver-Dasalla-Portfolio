@@ -164,7 +164,7 @@ const ProjectCard = ({
       {/* Live Demo Preview - Only show on desktop */}
       {showPreview && liveDemoLink && (
         <div
-          className="border-primary bg-background pointer-events-none fixed z-10000 overflow-hidden rounded-lg border-2 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] will-change-transform"
+          className="border-primary bg-background pointer-events-none fixed z-10000 hidden overflow-hidden rounded-lg border-2 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] will-change-transform md:block"
           style={{
             left: `${previewPosition.x}px`,
             top: `${previewPosition.y}px`,
