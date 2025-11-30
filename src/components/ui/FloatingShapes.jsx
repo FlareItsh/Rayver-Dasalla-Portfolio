@@ -80,7 +80,7 @@ export default function FloatingShapes() {
               width: `${shape.size}px`,
               height: `${shape.size}px`,
               transform: `translate(0, ${lagOffset - parallaxOffset}px)`,
-              opacity: isVisible ? 0.5 : 0,
+              opacity: isVisible ? 0.15 : 0,
               transition:
                 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 1s ease-out',
               animation: isVisible
@@ -90,20 +90,21 @@ export default function FloatingShapes() {
             }}
           >
             {shape.type === 'circle' && (
-              <div className="bg-primary/20 h-full w-full rounded-full blur-[2px]"></div>
+              <div className="bg-primary/60 h-full w-full rounded-full shadow-[0_0_20px_rgba(22,48,43,0.4)] dark:bg-white/40 dark:shadow-[0_0_30px_rgba(255,255,255,0.3)]"></div>
             )}
             {shape.type === 'square' && (
-              <div className="bg-primary/20 h-full w-full rotate-45 blur-[2px]"></div>
+              <div className="bg-primary/60 h-full w-full rotate-45 shadow-[0_0_20px_rgba(22,48,43,0.4)] dark:bg-white/40 dark:shadow-[0_0_30px_rgba(255,255,255,0.3)]"></div>
             )}
             {shape.type === 'triangle' && (
               <div
-                className="blur-[2px]"
+                className="shadow-[0_0_20px_rgba(22,48,43,0.4)] dark:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
                 style={{
                   width: 0,
                   height: 0,
                   borderLeft: `${shape.size / 2}px solid transparent`,
                   borderRight: `${shape.size / 2}px solid transparent`,
-                  borderBottom: `${shape.size}px solid rgba(22, 48, 43, 0.2)`,
+                  borderBottom: `${shape.size}px solid rgba(22, 48, 43, 0.6)`,
+                  filter: 'drop-shadow(0 0 10px rgba(22, 48, 43, 0.4))',
                 }}
               ></div>
             )}

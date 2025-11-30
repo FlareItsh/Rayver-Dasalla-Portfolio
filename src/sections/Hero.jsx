@@ -107,7 +107,7 @@ export default function Hero() {
                 isVisibleTagline ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
               }`}
             >
-              Crafting elegant solutions, one line at a time ✨
+              Crafting elegant solutions, one line at a time
             </p>
           </div>
         </div>
