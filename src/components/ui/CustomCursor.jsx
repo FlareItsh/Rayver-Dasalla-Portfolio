@@ -6,9 +6,11 @@ export default function CustomCursor() {
   const [trail, setTrail] = useState([]);
   const [isDark, setIsDark] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [clickEffect, setClickEffect] = useState(null);
   const rafRef = useRef(null);
   const cursorRef = useRef({ x: 0, y: 0 });
   const trailTimeoutRef = useRef(null);
+  const audioRef = useRef(null);
 
   // Check if device is mobile
   useEffect(() => {
@@ -43,6 +45,85 @@ export default function CustomCursor() {
 
     return () => observer.disconnect();
   }, []);
+
+  // Initialize audio on mount
+  useEffect(() => {
+    // Create audio element with an Osu-style click sound
+    // Using a simple beep sound via Web Audio API
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    const audioContext = new AudioContext();
+
+    audioRef.current = audioContext;
+
+    return () => {
+      if (audioContext) {
+        audioContext.close();
+      }
+    };
+  }, []);
+
+  // Play click sound - realistic stick hitting table sound
+  const playClickSound = () => {
+    if (!audioRef.current) return;
+
+    const ctx = audioRef.current;
+
+    // Create a more realistic "knock" sound using white noise and filters
+    const bufferSize = ctx.sampleRate * 0.05; // 50ms buffer
+    const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+    const output = buffer.getChannelData(0);
+
+    // Generate noise burst
+    for (let i = 0; i < bufferSize; i++) {
+      output[i] = Math.random() * 2 - 1;
+    }
+
+    const noise = ctx.createBufferSource();
+    noise.buffer = buffer;
+
+    // Band-pass filter to simulate wood resonance (200-800 Hz)
+    const filter = ctx.createBiquadFilter();
+    filter.type = 'bandpass';
+    filter.frequency.value = 400;
+    filter.Q.value = 1;
+
+    const gainNode = ctx.createGain();
+
+    noise.connect(filter);
+    filter.connect(gainNode);
+    gainNode.connect(ctx.destination);
+
+    // Sharp attack, quick decay for "knock" effect
+    gainNode.gain.setValueAtTime(0.4, ctx.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.04);
+
+    noise.start(ctx.currentTime);
+    noise.stop(ctx.currentTime + 0.05);
+  };
+
+  // Handle click events
+  useEffect(() => {
+    const handleClick = (e) => {
+      if (isMobile) return;
+
+      // Play click sound
+      playClickSound();
+
+      // Create visual click effect
+      setClickEffect({ x: e.clientX, y: e.clientY, id: Date.now() });
+
+      // Remove click effect after animation
+      setTimeout(() => {
+        setClickEffect(null);
+      }, 400);
+    };
+
+    window.addEventListener('mousedown', handleClick);
+
+    return () => {
+      window.removeEventListener('mousedown', handleClick);
+    };
+  }, [isMobile]);
 
   useEffect(() => {
     const updateCursor = (e) => {
@@ -136,6 +217,24 @@ export default function CustomCursor() {
           />
         );
       })}
+
+      {/* Click effect - Osu-style expanding circle */}
+      {clickEffect && (
+        <div
+          key={clickEffect.id}
+          className="pointer-events-none fixed z-9999 animate-ping rounded-full border-2 will-change-transform"
+          style={{
+            left: `${clickEffect.x}px`,
+            top: `${clickEffect.y}px`,
+            transform: 'translate(-50%, -50%)',
+            borderColor: ringColor,
+            width: '20px',
+            height: '20px',
+            animationDuration: '400ms',
+            animationIterationCount: '1',
+          }}
+        />
+      )}
 
       {/* Main cursor */}
       <div
