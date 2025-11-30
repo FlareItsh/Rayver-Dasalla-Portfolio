@@ -7,6 +7,8 @@ export default function Navbar() {
   const [isMobile, setIsMobile] = useState(false);
   const [activeLink, setActiveLink] = useState('home');
   const [isVisible, setIsVisible] = useState(false); // New state for entrance animation
+  const [dotPosition, setDotPosition] = useState({ left: 0, width: 0 }); // Track dot position
+  const navRefs = React.useRef({}); // Store refs for each nav item
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 767px)');
@@ -75,6 +77,20 @@ export default function Navbar() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Update dot position when activeLink changes
+  useEffect(() => {
+    if (!isMobile && navRefs.current[activeLink]) {
+      const activeElement = navRefs.current[activeLink];
+      const rect = activeElement.getBoundingClientRect();
+      const parentRect = activeElement.parentElement.parentElement.getBoundingClientRect();
+
+      setDotPosition({
+        left: rect.left - parentRect.left + rect.width / 2,
+        width: rect.width,
+      });
+    }
+  }, [activeLink, isMobile]);
+
   const toggleDarkMode = () => {
     setDarkMode((prev) => !prev);
   };
@@ -88,6 +104,11 @@ export default function Navbar() {
 
   const Link = ({ item, isMobile = false }) => (
     <a
+      ref={(el) => {
+        if (!isMobile) {
+          navRefs.current[item.id] = el;
+        }
+      }}
       href={`#${item.id}`}
       onClick={isMobile ? () => setIsOpen(false) : undefined}
       className={`group relative block transition-all duration-300 ease-in-out ${
@@ -106,22 +127,38 @@ export default function Navbar() {
     >
       <span className="relative">
         {item.text}
-        {/* Glowing dot indicator for active link - desktop only */}
-        {!isMobile && activeLink === item.id && (
-          <span className="absolute -bottom-2 left-1/2 h-1.5 w-1.5 -translate-x-1/2 animate-pulse rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]"></span>
+        {/* Animated underline on hover - desktop only */}
+        {!isMobile && (
+          <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-linear-to-r from-white/0 via-white to-white/0 transition-all duration-300 ease-out group-hover:w-full"></span>
+        )}
+        {/* Glow effect on hover - desktop only */}
+        {!isMobile && (
+          <span className="absolute inset-0 rounded opacity-0 blur-sm transition-opacity duration-300 group-hover:bg-white/10 group-hover:opacity-100"></span>
         )}
       </span>
     </a>
   );
 
   const desktopNav = (
-    <ul className="flex gap-20 text-base">
-      {navItems.map((item) => (
-        <li key={item.id} className="py-0">
-          <Link item={item} isMobile={false} />
-        </li>
-      ))}
-    </ul>
+    <div className="relative">
+      <ul className="flex gap-20 text-base">
+        {navItems.map((item) => (
+          <li key={item.id} className="py-0">
+            <Link item={item} isMobile={false} />
+          </li>
+        ))}
+      </ul>
+      {/* Sliding glowing dot indicator */}
+      {!isMobile && dotPosition.left > 0 && (
+        <span
+          className="absolute -bottom-2 h-1.5 w-1.5 animate-pulse rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all duration-500 ease-out"
+          style={{
+            left: `${dotPosition.left}px`,
+            transform: 'translateX(-50%)',
+          }}
+        ></span>
+      )}
+    </div>
   );
 
   const mobileNavLinks = navItems.map((item) => (
@@ -168,7 +205,7 @@ export default function Navbar() {
       </nav>
       {isMobile && (
         <div
-          className={`bg-primary fixed inset-y-0 right-0 z-50 flex w-80 flex-col overflow-y-auto shadow-2xl backdrop-blur-sm transition-transform duration-300 ease-in-out ${
+          className={`bg-primary fixed inset-y-0 right-0 z-50 flex w-64 flex-col overflow-y-auto shadow-2xl backdrop-blur-sm transition-transform duration-300 ease-in-out ${
             isOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
