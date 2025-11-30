@@ -5,9 +5,26 @@ export default function CustomCursor() {
   const [isPointer, setIsPointer] = useState(false);
   const [trail, setTrail] = useState([]);
   const [isDark, setIsDark] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const rafRef = useRef(null);
   const cursorRef = useRef({ x: 0, y: 0 });
   const trailTimeoutRef = useRef(null);
+
+  // Check if device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        ) || window.innerWidth < 768
+      );
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Check dark mode
   useEffect(() => {
@@ -90,6 +107,11 @@ export default function CustomCursor() {
   const cursorShadow = isDark ? '0 0 15px rgba(255, 255, 255, 1)' : '0 0 12px rgba(10, 26, 23, 1)';
   const ringColor = isDark ? 'rgba(255, 255, 255, 1)' : 'rgba(10, 26, 23, 1)';
   const ringShadow = isDark ? '0 0 25px rgba(255, 255, 255, 0.8)' : '0 0 25px rgba(10, 26, 23, 1)';
+
+  // Don't render cursor on mobile devices
+  if (isMobile) {
+    return null;
+  }
 
   return (
     <>
