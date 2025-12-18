@@ -72,27 +72,33 @@ export default function Projects() {
               liveDemoLink="https://porshe-cloned.infinityfree.me/"
             />
             <ProjectCard
-              imageSrc="/images/Gatepass.png"
-              imageAlt="Project Image"
-              title="STI Gatepass System"
-              subtitle="Gatepass System for STI Events."
-              languages={['/icons/icon_2.png', '/icons/icon_3.png']}
-              githubLink="https://github.com/FlareItsh/SSC-Events-Gatepass-System.git"
-              liveDemoLink="https://gatepass-carl4dev.netlify.app/"
-            />
-            <ProjectCard
               imageSrc="/images/Gearhead.png"
               imageAlt="Project Image"
               title="Gearhead Carwash"
               subtitle="Modern web-based platform that streamlines carwash operations, reduces human error, and delivers real-time analytics."
               languages={[
-                '/icons/icon_1.png',
                 '/icons/icon_2.png',
+                '/icons/icon_3.png',
+                '/icons/icon_1.png',
                 '/icons/icon_9.png',
                 '/icons/icon_10.png',
               ]}
               githubLink="https://github.com/FlareItsh/Gearhead.git"
               liveDemoLink="https://gearhead-master-swtxlj.laravel.cloud/"
+            />
+            <ProjectCard
+              imageSrc="/images/Flashify.png"
+              imageAlt="Project Image"
+              title="Flashify: Flashcards Maker"
+              subtitle="Study smarter with fast, clean, and customizable flashcards."
+              languages={[
+                '/icons/icon_6.png',
+                '/icons/icon_3.png',
+                '/icons/icon_1.png',
+                '/icons/icon_10.png',
+              ]}
+              githubLink="https://github.com/FlareItsh/Flashify-Flashcards-Maker.git"
+              liveDemoLink="https://flashify-cards.vercel.app/"
             />
           </div>
         </div>
