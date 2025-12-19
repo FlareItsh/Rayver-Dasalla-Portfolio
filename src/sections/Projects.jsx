@@ -98,7 +98,7 @@ export default function Projects() {
                 '/icons/icon_10.png',
               ]}
               githubLink="https://github.com/FlareItsh/Flashify-Flashcards-Maker.git"
-              liveDemoLink="https://flashify-cards.vercel.app/"
+              liveDemoLink="https://flashify-cards.netlify.app/"
             />
           </div>
         </div>
