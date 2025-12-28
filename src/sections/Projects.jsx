@@ -84,7 +84,7 @@ export default function Projects() {
                 '/icons/icon_10.png',
               ]}
               githubLink="https://github.com/FlareItsh/Gearhead.git"
-              liveDemoLink="https://gearhead-master-swtxlj.laravel.cloud/"
+              liveDemoLink="https://gearhead-carwash-hvygkb.laravel.cloud/"
             />
             <ProjectCard
               imageSrc="/images/Flashify.png"
