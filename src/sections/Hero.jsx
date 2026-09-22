@@ -157,7 +157,7 @@ export default function Hero() {
         <a href="#contact" className="group">
           <Button
             variant="solid"
-            className="flex items-center gap-2.5 text-lg shadow-md transition-all duration-300 group-hover:shadow-xl sm:text-xl md:text-2xl"
+            className="flex items-center gap-2.5"
           >
             <span>LET'S TALK?</span>
             <ArrowDownRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5" />

@@ -273,7 +273,7 @@ export default function Contact() {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="group flex w-full items-center justify-center gap-2.5 rounded-xl py-3.5 text-sm font-semibold tracking-wide transition-all duration-300 sm:text-base"
+                    className="flex w-full items-center justify-center gap-2.5"
                   >
                     {isSubmitting ? (
                       <>
@@ -336,9 +336,9 @@ export default function Contact() {
             <div className="mt-6 flex justify-center">
               <Button
                 onClick={closeModal}
-                className="w-full sm:w-auto px-8 py-2.5 text-sm font-semibold"
+                className="w-full sm:w-auto px-8"
               >
-                Done
+                DONE
               </Button>
             </div>
           </div>

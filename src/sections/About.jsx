@@ -193,15 +193,12 @@ export default function About() {
               }`}
             >
               <a href="/Dasalla - CV.pdf" download className="w-full sm:w-auto">
-                <Button className="w-full text-base sm:w-auto sm:text-lg md:text-xl" variant="solid">
+                <Button className="w-full sm:w-auto" variant="solid">
                   VIEW CV
                 </Button>
               </a>
               <a href="#contact" className="w-full sm:w-auto">
-                <Button
-                  className="w-full text-base sm:w-auto sm:text-lg md:text-xl"
-                  variant="outlined"
-                >
+                <Button className="w-full sm:w-auto" variant="outlined">
                   LET'S WORK TOGETHER
                 </Button>
               </a>
