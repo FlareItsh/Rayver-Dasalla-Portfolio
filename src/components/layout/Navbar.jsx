@@ -141,7 +141,7 @@ export default function Navbar() {
 
   const desktopNav = (
     <div className="relative">
-      <ul className="flex gap-20 text-base">
+      <ul className="flex gap-14 text-sm font-medium tracking-wide lg:gap-16">
         {navItems.map((item) => (
           <li key={item.id} className="py-0">
             <Link item={item} isMobile={false} />
@@ -167,39 +167,48 @@ export default function Navbar() {
     </li>
   ));
 
-  // Conditional classes for navbar pure slide-down animation (hidden off-screen top, no fade)
-  const navbarClasses = `font-primary bg-primary sticky top-0 z-20 flex items-center justify-between px-4 py-4 lg:justify-around lg:px-0 transition-transform duration-700 ease-out ${
+  // Conditional classes for navbar with frosted glassmorphism
+  const navbarClasses = `font-primary bg-primary/85 dark:bg-primary/85 backdrop-blur-md border-b border-white/10 shadow-sm sticky top-0 z-50 flex items-center justify-between px-6 py-3.5 lg:justify-around lg:px-12 transition-all duration-700 ease-out ${
     isVisible ? 'translate-y-0' : '-translate-y-full'
-  }`; // Starts fully off-screen top (hidden), slides down to position after delay
+  }`;
 
   return (
     <>
       <nav className={navbarClasses}>
         <div>
-          <img className="size-13" src="/RD Logo Light.png" alt="Rayver Dasalla" />
+          <a
+            href="#home"
+            className="flex items-center transition-transform duration-300 hover:scale-105"
+            aria-label="Rayver Dasalla Home"
+          >
+            <img className="size-11 object-contain" src="/RD Logo Light.png" alt="Rayver Dasalla" />
+          </a>
         </div>
         {!isMobile ? desktopNav : null}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <button
             onClick={toggleDarkMode}
-            className="relative rounded-full p-1 transition-all duration-500 ease-out hover:bg-white/10"
+            aria-label="Toggle Theme"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/10 text-white shadow-xs transition-all duration-300 ease-out hover:bg-white/20 hover:scale-105"
           >
             <div
-              className={`transition-transform duration-500 ease-out ${darkMode ? 'rotate-360' : ''}`}
+              className={`flex items-center justify-center transition-transform duration-500 ease-out ${darkMode ? 'rotate-360' : ''}`}
             >
               {darkMode ? (
-                <Moon size={32} className="text-white" />
+                <Moon size={18} className="text-white" />
               ) : (
-                <Sun size={32} className="text-white" />
+                <Sun size={18} className="text-white" />
               )}
             </div>
           </button>
           {isMobile && (
-            <Menu
-              size={32}
-              className="cursor-pointer text-white"
+            <button
               onClick={() => setIsOpen(!isOpen)}
-            />
+              aria-label="Toggle Menu"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/10 text-white transition-all duration-300 hover:bg-white/20"
+            >
+              <Menu size={20} className="text-white" />
+            </button>
           )}
         </div>
       </nav>
