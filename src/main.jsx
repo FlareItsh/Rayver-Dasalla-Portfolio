@@ -115,7 +115,7 @@ function App() {
         <section className="scroll-m-20 py-4 md:py-10" id="about">
           <About />
         </section>
-        <section className="scroll-m-20 py-4 md:py-10">
+        <section className="scroll-m-20 py-4 md:py-10" id="skills">
           <Skills />
         </section>
         <section className="scroll-m-20 py-4 md:py-10" id="projects">
