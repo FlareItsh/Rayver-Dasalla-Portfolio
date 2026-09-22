@@ -69,7 +69,7 @@ export default function Projects() {
               subtitle="Corporate Website showcasing Porshe's Story to Greatness."
               languages={['/icons/icon_8.png', '/icons/icon_3.png']}
               githubLink="https://github.com/FlareItsh/Porshe-Cloned.git"
-              liveDemoLink="https://porshe-cloned.infinityfree.me/"
+              liveDemoLink="https://porsche-zeta.vercel.app/"
             />
             <ProjectCard
               imageSrc="/images/Gearhead.png"
@@ -98,7 +98,7 @@ export default function Projects() {
                 '/icons/icon_10.png',
               ]}
               githubLink="https://github.com/FlareItsh/Flashify-Flashcards-Maker.git"
-              liveDemoLink="https://flashify-cards.netlify.app/"
+              liveDemoLink="https://flashify-preview.vercel.app/"
             />
           </div>
         </div>
