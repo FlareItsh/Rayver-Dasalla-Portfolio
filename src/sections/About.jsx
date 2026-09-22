@@ -272,51 +272,6 @@ export default function About() {
             </Button>
           </a>
         </div>
-
-        {/* Fun Facts Section */}
-        <div
-          className={`text-textPrimary mt-10 w-full max-w-4xl px-4 transition-all duration-700 ease-out sm:mt-12 md:mt-16 ${
-            isVisibleButtons ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-          }`}
-        >
-          <h3 className="mb-6 text-center text-2xl font-bold sm:text-3xl md:text-4xl">
-            Fun Facts About Me 🎯
-          </h3>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6">
-            <div className="group rounded-lg bg-white/5 p-4 transition-all duration-300 hover:bg-white/10 hover:shadow-lg md:p-6">
-              <div className="mb-2 text-3xl">🏎️</div>
-              <h4 className="mb-1 text-lg font-semibold">Racing Enthusiast</h4>
-              <p className="text-textPrimary/70 text-sm sm:text-base">
-                When I'm not coding, I'm watching F1 and pretending my life has "DRS enabled."
-              </p>
-            </div>
-            <div className="group rounded-lg bg-white/5 p-4 transition-all duration-300 hover:bg-white/10 hover:shadow-lg md:p-6">
-              <div className="mb-2 text-3xl">⚡</div>
-              <h4 className="mb-1 text-lg font-semibold">Caffeine Addict</h4>
-              <p className="text-textPrimary/70 text-sm sm:text-base">
-                My code runs on pure caffeine. Energy drinks, tea, whatever works—if it buzzes, I’m
-                drinking it.
-              </p>
-            </div>
-
-            <div className="group rounded-lg bg-white/5 p-4 transition-all duration-300 hover:bg-white/10 hover:shadow-lg md:p-6">
-              <div className="mb-2 text-3xl">🎵</div>
-              <h4 className="mb-1 text-lg font-semibold">Music Lover</h4>
-              <p className="text-textPrimary/70 text-sm sm:text-base">
-                Coding with metal and nu-metal. My code has rhythm, my bugs have breakdowns, and
-                yes—I scream louder than the errors.
-              </p>
-            </div>
-            <div className="group rounded-lg bg-white/5 p-4 transition-all duration-300 hover:bg-white/10 hover:shadow-lg md:p-6">
-              <div className="mb-2 text-3xl">🌙</div>
-              <h4 className="mb-1 text-lg font-semibold">Night Owl</h4>
-              <p className="text-textPrimary/70 text-sm sm:text-base">
-                My brain only clocks in after midnight. Peak debugging happens at 2 AM—don’t ask
-                why.
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
     </>
   );

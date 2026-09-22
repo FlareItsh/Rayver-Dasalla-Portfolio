@@ -50,21 +50,21 @@ export default function Skills() {
         >
           Skills
         </h2>
-        <div className="text-textPrimary mx-auto max-w-7xl">
+        <div className="text-textPrimary mx-auto">
           {/* Cards grid - fades/slides from bottom to top */}
           <div
-            className={`grid grid-cols-1 gap-4 transition-all duration-700 ease-out sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 ${
+            className={`grid grid-cols-1 gap-5 transition-all duration-700 ease-out sm:grid-cols-2 lg:grid-cols-3 ${
               isVisibleCards ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}
           >
             {/* Skill Card */}
-            <div className="group w-full overflow-hidden rounded-lg border border-gray-400/20 bg-white/5 shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-gray-500/50 hover:shadow-[0_20px_60px_-15px_rgba(255,255,255,0.2)]">
-              <div className="flex flex-col space-y-3 p-3 sm:space-y-4 sm:p-4 md:space-y-5 md:p-6">
-                <div className="flex items-center gap-2">
-                  <Component className="h-6 w-6 shrink-0 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12 sm:h-8 sm:w-8 md:h-10 md:w-10" />
-                  <h3 className="text-base font-bold sm:text-lg md:text-xl">Web Designing</h3>
+            <div className="group flex h-full w-full flex-col overflow-hidden rounded-lg border border-gray-400/20 bg-white/5 shadow-2xl transition-all duration-500 ease-out hover:-translate-y-2 hover:border-gray-500/50 hover:shadow-[0_20px_60px_-15px_rgba(255,255,255,0.2)]">
+              <div className="flex h-full flex-col space-y-4 p-6 sm:space-y-5 sm:p-7 md:space-y-6 md:p-8">
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <Component className="h-8 w-8 shrink-0 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12 sm:h-9 sm:w-9 md:h-10 md:w-10" />
+                  <h3 className="text-lg font-bold sm:text-xl md:text-2xl">Web Designing</h3>
                 </div>
-                <div className="text-textPrimary/70 text-justify text-xs leading-relaxed sm:text-sm md:text-base">
+                <div className="text-textPrimary/75 text-sm leading-relaxed sm:text-base md:text-base">
                   <p>
                     I focus on creating responsive and user-friendly layouts that combine both
                     aesthetics and usability. I apply UI/UX principles such as accessibility, color
@@ -76,15 +76,15 @@ export default function Skills() {
               </div>
             </div>
             {/* Skill Card */}
-            <div className="group w-full overflow-hidden rounded-lg border border-gray-400/20 bg-white/5 shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-gray-500/50 hover:shadow-[0_20px_60px_-15px_rgba(255,255,255,0.2)]">
-              <div className="flex flex-col space-y-3 p-3 sm:space-y-4 sm:p-4 md:space-y-5 md:p-6">
-                <div className="flex items-center gap-2">
-                  <LayoutDashboard className="h-6 w-6 shrink-0 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12 sm:h-8 sm:w-8 md:h-10 md:w-10" />
-                  <h3 className="text-base font-bold sm:text-lg md:text-xl">
+            <div className="group flex h-full w-full flex-col overflow-hidden rounded-lg border border-gray-400/20 bg-white/5 shadow-2xl transition-all duration-500 ease-out hover:-translate-y-2 hover:border-gray-500/50 hover:shadow-[0_20px_60px_-15px_rgba(255,255,255,0.2)]">
+              <div className="flex h-full flex-col space-y-4 p-6 sm:space-y-5 sm:p-7 md:space-y-6 md:p-8">
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <LayoutDashboard className="h-8 w-8 shrink-0 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12 sm:h-9 sm:w-9 md:h-10 md:w-10" />
+                  <h3 className="text-lg font-bold sm:text-xl md:text-2xl">
                     Front-End Development
                   </h3>
                 </div>
-                <div className="text-textPrimary/70 text-justify text-xs leading-relaxed sm:text-sm md:text-base">
+                <div className="text-textPrimary/75 text-sm leading-relaxed sm:text-base md:text-base">
                   <p>
                     I work with HTML, CSS, and JavaScript to bring designs to life and make them
                     interactive. I have experience using frameworks and libraries such as React and
@@ -96,15 +96,15 @@ export default function Skills() {
               </div>
             </div>
             {/* Skill Card */}
-            <div className="group w-full overflow-hidden rounded-lg border border-gray-400/20 bg-white/5 shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-gray-500/50 hover:shadow-[0_20px_60px_-15px_rgba(255,255,255,0.2)]">
-              <div className="flex flex-col space-y-3 p-3 sm:space-y-4 sm:p-4 md:space-y-5 md:p-6">
-                <div className="flex items-center gap-2">
-                  <Database className="h-6 w-6 shrink-0 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12 sm:h-8 sm:w-8 md:h-10 md:w-10" />
-                  <h3 className="text-base font-bold sm:text-lg md:text-xl">
+            <div className="group flex h-full w-full flex-col overflow-hidden rounded-lg border border-gray-400/20 bg-white/5 shadow-2xl transition-all duration-500 ease-out hover:-translate-y-2 hover:border-gray-500/50 hover:shadow-[0_20px_60px_-15px_rgba(255,255,255,0.2)]">
+              <div className="flex h-full flex-col space-y-4 p-6 sm:space-y-5 sm:p-7 md:space-y-6 md:p-8">
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <Database className="h-8 w-8 shrink-0 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12 sm:h-9 sm:w-9 md:h-10 md:w-10" />
+                  <h3 className="text-lg font-bold sm:text-xl md:text-2xl">
                     Back-End Development
                   </h3>
                 </div>
-                <div className="text-textPrimary/70 text-justify text-xs leading-relaxed sm:text-sm md:text-base">
+                <div className="text-textPrimary/75 text-sm leading-relaxed sm:text-base md:text-base">
                   <p>
                     I handle the server-side logic of applications. I work with Laravel to build
                     functional systems, manage databases like MySQL, and create RESTful APIs for
