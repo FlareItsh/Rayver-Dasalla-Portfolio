@@ -57,60 +57,170 @@ export default function Skills() {
               isVisibleCards ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}
           >
-            {/* Skill Card */}
-            <div className="group flex h-full w-full flex-col overflow-hidden rounded-lg border border-gray-400/20 bg-white/5 shadow-2xl transition-all duration-500 ease-out hover:-translate-y-2 hover:border-gray-500/50 hover:shadow-[0_20px_60px_-15px_rgba(255,255,255,0.2)]">
-              <div className="flex h-full flex-col space-y-4 p-6 sm:space-y-5 sm:p-7 md:space-y-6 md:p-8">
-                <div className="flex items-center gap-3 sm:gap-4">
-                  <Component className="h-8 w-8 shrink-0 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12 sm:h-9 sm:w-9 md:h-10 md:w-10" />
-                  <h3 className="text-lg font-bold sm:text-xl md:text-2xl">Web Designing</h3>
+            {/* Skill Card 1: Web Designing */}
+            <div className="group relative flex h-full w-full flex-col justify-between overflow-hidden rounded-xl border border-gray-400/20 bg-white/5 p-6 shadow-2xl transition-all duration-500 ease-out hover:-translate-y-2 hover:border-gray-500/50 hover:shadow-[0_20px_60px_-15px_rgba(255,255,255,0.2)] sm:p-7 md:p-8">
+              {/* Top Accent Line */}
+              <div className="absolute top-0 inset-x-0 h-1 bg-linear-to-r from-transparent via-primary/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+
+              <div className="flex flex-col space-y-4">
+                {/* Header: Icon badge & Title */}
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary transition-all duration-500 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
+                    <Component className="h-6 w-6 sm:h-7 sm:w-7 transition-transform duration-500 group-hover:rotate-12" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold sm:text-xl md:text-2xl">Web Designing</h3>
+                    <span className="text-textPrimary/55 text-xs font-semibold uppercase tracking-wider">
+                      UI/UX & Prototyping
+                    </span>
+                  </div>
                 </div>
-                <div className="text-textPrimary/75 text-sm leading-relaxed sm:text-base md:text-base">
-                  <p>
-                    I focus on creating responsive and user-friendly layouts that combine both
-                    aesthetics and usability. I apply UI/UX principles such as accessibility, color
-                    theory, and typography to ensure that every design looks good and feels
-                    intuitive. I also use tools like Figma and Canva to plan and refine my designs
-                    before development.
-                  </p>
+
+                {/* Description */}
+                <p className="text-textPrimary/75 text-sm leading-relaxed sm:text-base">
+                  Creating responsive, user-friendly layouts that blend aesthetic beauty with practical usability, grounded in accessibility and intuitive interaction principles.
+                </p>
+
+                {/* Capability Highlights */}
+                <div className="space-y-1.5 pt-1 text-xs text-textPrimary/80 sm:text-sm">
+                  <div className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary/60"></span>
+                    <span>High-Fidelity Wireframes & Prototypes</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary/60"></span>
+                    <span>Accessibility & Typography Hierarchy</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary/60"></span>
+                    <span>Design Systems & Component Specs</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Tech Pills (Pinned to bottom) */}
+              <div className="mt-6 pt-4 border-t border-gray-400/15">
+                <div className="flex flex-wrap gap-2">
+                  {['Figma', 'Canva', 'UI/UX', 'Wireframing', 'Prototyping'].map((tool) => (
+                    <span
+                      key={tool}
+                      className="rounded-md border border-gray-400/20 bg-white/10 px-2.5 py-1 text-[11px] font-medium text-textPrimary/90 transition-colors duration-200 group-hover:border-gray-400/40 sm:text-xs"
+                    >
+                      {tool}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
-            {/* Skill Card */}
-            <div className="group flex h-full w-full flex-col overflow-hidden rounded-lg border border-gray-400/20 bg-white/5 shadow-2xl transition-all duration-500 ease-out hover:-translate-y-2 hover:border-gray-500/50 hover:shadow-[0_20px_60px_-15px_rgba(255,255,255,0.2)]">
-              <div className="flex h-full flex-col space-y-4 p-6 sm:space-y-5 sm:p-7 md:space-y-6 md:p-8">
-                <div className="flex items-center gap-3 sm:gap-4">
-                  <LayoutDashboard className="h-8 w-8 shrink-0 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12 sm:h-9 sm:w-9 md:h-10 md:w-10" />
-                  <h3 className="text-lg font-bold sm:text-xl md:text-2xl">
-                    Front-End Development
-                  </h3>
+
+            {/* Skill Card 2: Front-End Development */}
+            <div className="group relative flex h-full w-full flex-col justify-between overflow-hidden rounded-xl border border-gray-400/20 bg-white/5 p-6 shadow-2xl transition-all duration-500 ease-out hover:-translate-y-2 hover:border-gray-500/50 hover:shadow-[0_20px_60px_-15px_rgba(255,255,255,0.2)] sm:p-7 md:p-8">
+              {/* Top Accent Line */}
+              <div className="absolute top-0 inset-x-0 h-1 bg-linear-to-r from-transparent via-primary/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+
+              <div className="flex flex-col space-y-4">
+                {/* Header: Icon badge & Title */}
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary transition-all duration-500 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
+                    <LayoutDashboard className="h-6 w-6 sm:h-7 sm:w-7 transition-transform duration-500 group-hover:rotate-12" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold sm:text-xl md:text-2xl">Front-End Development</h3>
+                    <span className="text-textPrimary/55 text-xs font-semibold uppercase tracking-wider">
+                      Interactive SPAs & UI
+                    </span>
+                  </div>
                 </div>
-                <div className="text-textPrimary/75 text-sm leading-relaxed sm:text-base md:text-base">
-                  <p>
-                    I work with HTML, CSS, and JavaScript to bring designs to life and make them
-                    interactive. I have experience using frameworks and libraries such as React and
-                    TailwindCSS to build modern, responsive interfaces that work across different
-                    devices and browsers. I also pay attention to performance and optimization to
-                    provide a smooth user experience.
-                  </p>
+
+                {/* Description */}
+                <p className="text-textPrimary/75 text-sm leading-relaxed sm:text-base">
+                  Bringing designs to life with clean, modular, and reactive architectures that ensure lightning-fast performance across browsers and devices.
+                </p>
+
+                {/* Capability Highlights */}
+                <div className="space-y-1.5 pt-1 text-xs text-textPrimary/80 sm:text-sm">
+                  <div className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary/60"></span>
+                    <span>Responsive, Mobile-First Architectures</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary/60"></span>
+                    <span>State Management & Reactive Components</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary/60"></span>
+                    <span>Performance & Core Web Vitals Optimization</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Tech Pills (Pinned to bottom) */}
+              <div className="mt-6 pt-4 border-t border-gray-400/15">
+                <div className="flex flex-wrap gap-2">
+                  {['React', 'Tailwind CSS', 'JavaScript', 'Vue', 'HTML5/CSS3'].map((tool) => (
+                    <span
+                      key={tool}
+                      className="rounded-md border border-gray-400/20 bg-white/10 px-2.5 py-1 text-[11px] font-medium text-textPrimary/90 transition-colors duration-200 group-hover:border-gray-400/40 sm:text-xs"
+                    >
+                      {tool}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
-            {/* Skill Card */}
-            <div className="group flex h-full w-full flex-col overflow-hidden rounded-lg border border-gray-400/20 bg-white/5 shadow-2xl transition-all duration-500 ease-out hover:-translate-y-2 hover:border-gray-500/50 hover:shadow-[0_20px_60px_-15px_rgba(255,255,255,0.2)]">
-              <div className="flex h-full flex-col space-y-4 p-6 sm:space-y-5 sm:p-7 md:space-y-6 md:p-8">
-                <div className="flex items-center gap-3 sm:gap-4">
-                  <Database className="h-8 w-8 shrink-0 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12 sm:h-9 sm:w-9 md:h-10 md:w-10" />
-                  <h3 className="text-lg font-bold sm:text-xl md:text-2xl">
-                    Back-End Development
-                  </h3>
+
+            {/* Skill Card 3: Back-End Development */}
+            <div className="group relative flex h-full w-full flex-col justify-between overflow-hidden rounded-xl border border-gray-400/20 bg-white/5 p-6 shadow-2xl transition-all duration-500 ease-out hover:-translate-y-2 hover:border-gray-500/50 hover:shadow-[0_20px_60px_-15px_rgba(255,255,255,0.2)] sm:p-7 md:p-8">
+              {/* Top Accent Line */}
+              <div className="absolute top-0 inset-x-0 h-1 bg-linear-to-r from-transparent via-primary/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+
+              <div className="flex flex-col space-y-4">
+                {/* Header: Icon badge & Title */}
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary transition-all duration-500 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
+                    <Database className="h-6 w-6 sm:h-7 sm:w-7 transition-transform duration-500 group-hover:rotate-12" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold sm:text-xl md:text-2xl">Back-End Development</h3>
+                    <span className="text-textPrimary/55 text-xs font-semibold uppercase tracking-wider">
+                      APIs & Data Architecture
+                    </span>
+                  </div>
                 </div>
-                <div className="text-textPrimary/75 text-sm leading-relaxed sm:text-base md:text-base">
-                  <p>
-                    I handle the server-side logic of applications. I work with Laravel to build
-                    functional systems, manage databases like MySQL, and create RESTful APIs for
-                    smooth communication between the front end and the server. I also make sure that
-                    data handling, authentication, and security are properly implemented.
-                  </p>
+
+                {/* Description */}
+                <p className="text-textPrimary/75 text-sm leading-relaxed sm:text-base">
+                  Architecting secure, scalable server-side systems, designing relational database schemas, and engineering high-throughput RESTful APIs.
+                </p>
+
+                {/* Capability Highlights */}
+                <div className="space-y-1.5 pt-1 text-xs text-textPrimary/80 sm:text-sm">
+                  <div className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary/60"></span>
+                    <span>RESTful API Design & Integration</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary/60"></span>
+                    <span>Database Schema Design & Query Indexing</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary/60"></span>
+                    <span>Authentication, Session & Security Best Practices</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Tech Pills (Pinned to bottom) */}
+              <div className="mt-6 pt-4 border-t border-gray-400/15">
+                <div className="flex flex-wrap gap-2">
+                  {['Laravel', 'PHP', 'MySQL', 'RESTful APIs', 'MSSQL'].map((tool) => (
+                    <span
+                      key={tool}
+                      className="rounded-md border border-gray-400/20 bg-white/10 px-2.5 py-1 text-[11px] font-medium text-textPrimary/90 transition-colors duration-200 group-hover:border-gray-400/40 sm:text-xs"
+                    >
+                      {tool}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
