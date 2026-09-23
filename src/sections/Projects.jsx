@@ -65,8 +65,8 @@ export default function Projects() {
             <ProjectCard
               imageSrc="/images/Porshe-Page.png"
               imageAlt="Project Image"
-              title="Porshe Corporate Website"
-              subtitle="Corporate Website showcasing Porshe's Story to Greatness."
+              title="Porsche Corporate Website"
+              subtitle="Clone of Porsche's Website showcasing Porsche's Story to Greatness."
               languages={['/icons/icon_8.png', '/icons/icon_3.png']}
               githubLink="https://github.com/FlareItsh/Porshe-Cloned.git"
               liveDemoLink="https://porsche-zeta.vercel.app/"
@@ -84,7 +84,7 @@ export default function Projects() {
                 '/icons/icon_10.png',
               ]}
               githubLink="https://github.com/FlareItsh/Gearhead.git"
-              liveDemoLink="https://gearhead-carwash-hvygkb.laravel.cloud/"
+              liveDemoLink="https://gearhead-carwash-fulnrz.laravel.cloud/"
             />
             <ProjectCard
               imageSrc="/images/Flashify.png"
